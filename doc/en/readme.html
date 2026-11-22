@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Audio Toggles</title></head><body>
+<h1>Audio Toggles</h1>
+<p>An NVDA add-on for controlling Windows audio from the keyboard: mute the speaker or microphone, switch playback and recording devices, adjust volume, save device presets, and control individual applications.</p>
+<h2>Keyboard commands</h2>
+<p>All defaults can be changed in NVDA&#x27;s Input Gestures dialog, under the Audio Toggles category.</p>
+<ul>
+<li><code>NVDA+Ctrl+Shift+M</code>: toggle speaker mute</li>
+<li><code>NVDA+Ctrl+Shift+U</code>: toggle microphone mute</li>
+<li><code>NVDA+Ctrl+Shift+O</code>: switch to the next playback device</li>
+<li><code>NVDA+Ctrl+Shift+I</code>: switch to the next recording device</li>
+<li><code>NVDA+Ctrl+Shift+D</code>: speak the current playback and recording devices with volume and mute state</li>
+<li><code>NVDA+Ctrl+Shift+L</code>: open the audio devices list</li>
+<li><code>NVDA+Ctrl+Shift+Up Arrow</code> and <code>Down Arrow</code>: speaker volume up and down</li>
+<li><code>NVDA+Ctrl+Shift+P</code>: apply the next saved preset</li>
+<li><code>NVDA+Ctrl+Shift+A</code>: mute or unmute the application you are using</li>
+</ul>
+<p>These commands have no default gesture; assign them in Input Gestures if you want them:</p>
+<ul>
+<li>microphone volume up and down</li>
+<li>set the speaker volume to a specific level</li>
+<li>open the presets manager</li>
+<li>open the application volumes list</li>
+<li>open the Audio Toggles settings</li>
+</ul>
+<h2>Audio devices list</h2>
+<p>Works like NVDA&#x27;s Elements List. Choose Playback or Recording, type in the filter box to narrow the list, then press Enter on a device to make it the default. Buttons let you mute or unmute a device, and skip it when cycling.</p>
+<h2>Application volumes</h2>
+<p>Lists applications that currently have audio on the default playback device. Mute, unmute, and change the volume of each. NVDA itself is never listed, so you cannot accidentally silence your screen reader.</p>
+<h2>Presets</h2>
+<p>A preset stores a playback and a recording device. Save the current pair under a name, apply a preset from the manager, or press the preset shortcut to cycle through them. Devices that are not connected are skipped.</p>
+<h2>Settings</h2>
+<p>Open NVDA settings and choose Audio Toggles.</p>
+<ul>
+<li>Language of spoken messages: follow NVDA, or choose English, Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam or Punjabi. Dialog text always follows NVDA&#x27;s own language.</li>
+<li>Feedback type: speech, tones, or both.</li>
+<li>Delay before muting the speaker, so the announcement finishes before NVDA goes silent.</li>
+<li>Volume step.</li>
+<li>Which Windows roles (console, multimedia, communications) change when you switch device.</li>
+<li>Short device names.</li>
+<li>Device monitoring: announce when devices connect or disconnect, and optionally switch to a newly connected playback device.</li>
+<li>Devices to skip when cycling.</li>
+<li>Manage presets.</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>Mute state is read from Windows, so announcements always match reality, even if you muted from another program.</li>
+<li>Muting the speaker also silences NVDA. The add-on announces first and mutes after the delay you choose.</li>
+<li>Per-application control covers applications playing on the default playback device only.</li>
+<li>The add-on is disabled on secure screens such as sign-in and UAC.</li>
+<li>Requires NVDA 2023.1 or later.</li>
+</ul>
+<h2>Translations</h2>
+<p>Translations live in <code>addon/locale/&lt;language&gt;/LC_MESSAGES/nvda.po</code>. They were drafted without native-speaker review, so corrections are welcome. Edit the <code>.po</code> file and rebuild. <code>translations/AudioToggles.pot</code> is the template for adding a language.</p>
+<h2>Building</h2>
+<pre>
+python tools/gen_locale.py   # only when changing translations_data.py
+python build.py              # writes dist/AudioToggles-&lt;version&gt;.nvda-addon
+python -m unittest discover tests
+</pre>
+</body></html>
